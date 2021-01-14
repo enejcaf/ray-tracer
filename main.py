@@ -136,8 +136,11 @@ while True:
                     update_display()
             if butS > 0:
                 if Button_save.pressed(pygame.mouse.get_pos()):
-                    pygame.image.save(img, "image2.jpg")
+                    ime=filedialog.asksaveasfilename(title = "Select file", filetypes = (('JPEG', ('*.jpg','*.jpeg','*.jpe','*.jfif')),('PNG', '*.png'),('BMP', ('*.bmp','*.jdib')),('GIF', '*.gif')))
+                    #pygame.image.save(img, ime)
+                    print(ime)
                     Button_save.create_button(screen, (255,0,0), (x+x_img)//2 - w2, (y+y_img)//2, w2, h2, 0, "Saved", (255,255,255))
                     pygame.display.update()
                     butS-=1
                     print('Image saved!')
+                    root.mainloop()
