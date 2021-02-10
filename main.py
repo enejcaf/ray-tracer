@@ -154,21 +154,24 @@ while True:
             if krogla.pressed(pygame.mouse.get_pos()):
                 if uploaded>0:
                     barva=askcolor((255, 255, 0))[0]
-                    center_x=random.rand(2)
-                    center_y=random.rand(2)
-                    center_z=random.rand(1)
-                    r1=random.rand(1)
+                    print(barva)
+                    center_x=random.rand()
+                    center_y=random.rand()
+                    center_z=random.rand()
+                    r1=random.rand()
 
-                    pygame.draw.circle(screen, barva,(300*center_x//5+450, (200*center_y)//5+300), 200*r1//5, width=0)
+                    #pygame.draw.circle(screen, barva, ((300*1)//5+450, (200*1)//5+300), 20, width=1)
+                    pygame.draw.circle(screen, barva,((300*center_x)//5+450, (200*center_y)//5+300), 200*r1//5, width=0)
 
                     objekti, svetila, kamera, zaslon = read_json(pot)
-                    objekti.append({ 'center': np.array([center_x, center_y, center_z]), 'radius': r1, 'ambient': np.array([0.1, 0, 0]), 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 })
+                    objekti.append({ 'center': np.array([center_x, center_y, center_z]), 'radius': r1, 'ambient': np.array(barva)/255, 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 })
                     print_json(objekti, svetila, kamera, zaslon, pot)
                     pygame.display.update()
+                    root.mainloop()
                 else:
                     print('Niste še naložili datoteke oblike json z začetnimi podatki.')
-                    
-                root.mainloop()
+
+
 
             if butC > 0:
                 if Button_close.pressed(pygame.mouse.get_pos()):
