@@ -3,7 +3,7 @@
 <ul>
 <li class="has-line-data" data-line-start="3" data-line-end="4">branje iz datotek formata “.json”,</li>
 <li class="has-line-data" data-line-start="4" data-line-end="5">predogled tlorisa postavitve,</li>
-<li class="has-line-data" data-line-start="5" data-line-end="6">dodajanje novih objektov s poljubno bravo na sceno in shranjevanje v format “.json”,</li>
+<li class="has-line-data" data-line-start="5" data-line-end="6">dodajanje novih objektov s poljubno barvo na sceno in shranjevanje v format “.json”,</li>
 <li class="has-line-data" data-line-start="6" data-line-end="7">sprotno risanje končne slike na zaslonu,</li>
 <li class="has-line-data" data-line-start="7" data-line-end="9">shranjevanje slike v formate oblike ‘JPEG’: ’<em>.jpg’,’</em>.jpeg’,’<em>.jpe’,’</em>.jfif’; ‘PNG’: ’<em>.png’; ‘BMP’: ’</em>.bmp’,’<em>.jdib’; ‘GIF’: ’</em>.gif’.</li>
 </ul>
