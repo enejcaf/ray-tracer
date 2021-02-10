@@ -9,7 +9,7 @@
 </ul>
 <p class="has-line-data" data-line-start="9" data-line-end="10">Ideja algoritma je bila narejena po korakih in kodi avtorja Romana Aflaka, ki je objavil “Ray Tracing From Scratch in Python” [Objavljeno: 26. 7. 2020. Vir:  <a href="https://medium.com/swlh/ray-tracing-from-scratch-in-python-41670e6a96f9">https://medium.com/swlh/ray-tracing-from-scratch-in-python-41670e6a96f9</a>] z nekaj dodatki in implementacijo kode v uporabniški vmesnik.</p>
 <h3 class="code-line" data-line-start=10 data-line-end=11 ><a id="Instalacija_10"></a>Instalacija</h3>
-<p class="has-line-data" data-line-start="11" data-line-end="12">Za pravilno delovanje programa je potrebno iz git-hub projekta prenesti vse Python datoteke in paziti, da so v isti mapi, kar velja za uporabo uporabniškega vmesnika.</p>
+<p class="has-line-data" data-line-start="11" data-line-end="12">Za pravilno delovanje programa je potrebno iz git-hub projekta prenesti vse Python datoteke in paziti, da so v isti mapi, kar velja za uporabo uporabniškega vmesnika. Na računalniku potrebujemo instaliran Python 3 in knjižnjice: numpy, math, json, tkinter, progress.bar in če ne uporabljamo uporabniškega vmesnika matplotlib.</p>
 <h3 class="code-line" data-line-start=13 data-line-end=14 ><a id="Uporaba_raytrpyhttpsgithubcomenejcafraytracerblobmainraytrpy_13"></a>Uporaba <a href="https://github.com/enejcaf/ray-tracer/blob/main/raytr.py">raytr.py</a></h3>
 <p class="has-line-data" data-line-start="14" data-line-end="15">Vhodni podatki programa so objekti, svetila, kamera in zaslon, ki so oblike seznama, v katerem je z indeksno številko predstavljen objekt. Pri zaslonu in kameri, je trenutno možna le en objekt, a se je obdržala splošna notacija. Poglejmo primer:</p>
 <ul>
