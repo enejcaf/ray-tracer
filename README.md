@@ -11,6 +11,7 @@ The pygame interface is very simple to use. In main window you have to upload th
 ],
 
 light = [{ 'position': np.array([5, 5, 5]), 'ambient': np.array([1, 1, 1]), 'diffuse': np.array([1, 1, 1]), 'specular': np.array([1, 1, 1]) }],
+
 camera = [{'position': np.array([0, 0, 1])}],
 
 screen = [{'width': 900, 'height': 600}]).
