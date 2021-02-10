@@ -1,7 +1,7 @@
 # ray-tracer
 The idea behind the algorithm is taken step by step from Roman Aflak, who published "Ray Tracing From Scratch in Python" [Published: Jul 26, 2020. Source:  https://medium.com/swlh/ray-tracing-from-scratch-in-python-41670e6a96f9], with some additions to the code. Simple "ray tracing" algorithm currently operates with spheres, where we can use a very large distant sphere as a plane. Description of object is with a dictionary for example: {'center': np.array([0, 0, 0]), 'radius': 0.7, 'ambient': np.array([0.1, 0, 0]), 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 }, where parameters represent center of a ball, its radius, and six parameters that are used in the light model: ambient, diffuse, specular, shininess, reflection and n2, where the first five ar from the Blinn-Phong reflection model, and the second one is used as refraction coefficient in Snell's law, where we assume that n outside of object is 1. If you want to add more objects create list of such dictionaries.
 
-Pygame interface
+# Pygame interface
 
 The pygame interface is very simple to use. In main window you have to upload the ".json" file. You can create such file with function print_json(objects, light, camera, screen, file_name). Input parameters are for example:
 
