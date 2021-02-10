@@ -25,6 +25,7 @@
                 0.0, 
                 0.0
             ], 
+            "n2": 1.52, 
             "radius": 0.7, 
             "reflection": 0.5, 
             "shininess": 100, 
@@ -50,6 +51,7 @@
                 0.0, 
                 0.7
             ], 
+            "n2": 1.52, 
             "radius": 0.1, 
             "reflection": 0.5, 
             "shininess": 100, 
@@ -75,7 +77,34 @@
                 0.6, 
                 0.0
             ], 
+            "n2": 1.52, 
             "radius": 0.15, 
+            "reflection": 0.5, 
+            "shininess": 100, 
+            "specular": [
+                1, 
+                1, 
+                1
+            ]
+        }, 
+        {
+            "ambient": [
+                0.1, 
+                0.1, 
+                0.1
+            ], 
+            "center": [
+                0, 
+                -9000, 
+                0
+            ], 
+            "diffuse": [
+                0.6, 
+                0.6, 
+                0.6
+            ], 
+            "n2": 1.4, 
+            "radius": 8999.3, 
             "reflection": 0.5, 
             "shininess": 100, 
             "specular": [
@@ -111,8 +140,8 @@
     ], 
     "zaslon": [
         {
-            "height": 400, 
-            "width": 600
+            "height": 600, 
+            "width": 900
         }
     ]
 }
