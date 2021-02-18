@@ -16,8 +16,8 @@
                 0.0
             ], 
             "center": [
-                -0.2, 
-                0.0, 
+                -0.4, 
+                -0.4, 
                 -1.0
             ], 
             "diffuse": [
@@ -26,14 +26,15 @@
                 0.0
             ], 
             "n2": 1.52, 
-            "radius": 0.7, 
+            "radius": 0.4, 
             "reflection": 0.5, 
             "shininess": 100, 
             "specular": [
                 1, 
                 1, 
                 1
-            ]
+            ], 
+            "type": "ball"
         }, 
         {
             "ambient": [
@@ -59,7 +60,41 @@
                 1, 
                 1, 
                 1
-            ]
+            ], 
+            "type": "ball"
+        }, 
+        {
+            "ambient": [
+                0.1, 
+                0.1, 
+                0.1
+            ], 
+            "center": [
+                -0.2, 
+                0.2, 
+                -0.4
+            ], 
+            "diffuse": [
+                0.7, 
+                0.0, 
+                0.7
+            ], 
+            "direction": [
+                0.0, 
+                0.2, 
+                1.0
+            ], 
+            "height": 0.6, 
+            "n2": 1.52, 
+            "radius": 0.5, 
+            "reflection": 0.5, 
+            "shininess": 100, 
+            "specular": [
+                1, 
+                1, 
+                1
+            ], 
+            "type": "cylinder"
         }, 
         {
             "ambient": [
@@ -85,7 +120,8 @@
                 1, 
                 1, 
                 1
-            ]
+            ], 
+            "type": "ball"
         }, 
         {
             "ambient": [
@@ -93,25 +129,62 @@
                 0.1, 
                 0.1
             ], 
-            "center": [
-                0, 
-                -9000, 
-                0
-            ], 
             "diffuse": [
                 0.6, 
                 0.6, 
                 0.6
             ], 
-            "n2": 1.4, 
-            "radius": 8999.3, 
+            "n2": 1, 
+            "normal": [
+                0, 
+                1, 
+                0
+            ], 
+            "point": [
+                0, 
+                -1, 
+                0
+            ], 
             "reflection": 0.5, 
             "shininess": 100, 
             "specular": [
                 1, 
                 1, 
                 1
-            ]
+            ], 
+            "type": "plane"
+        }, 
+        {
+            "ambient": [
+                0.1, 
+                0.0, 
+                0.0
+            ], 
+            "center": [
+                -0.1, 
+                -0.2, 
+                -0.3
+            ], 
+            "diffuse": [
+                0.7, 
+                0.0, 
+                0.0
+            ], 
+            "direction": [
+                0, 
+                -2, 
+                1
+            ], 
+            "height": 0.5, 
+            "n2": 1.52, 
+            "reflection": 0.5, 
+            "shininess": 100, 
+            "specular": [
+                1, 
+                1, 
+                1
+            ], 
+            "type": "cone"
         }
     ], 
     "svetila": [
@@ -140,8 +213,8 @@
     ], 
     "zaslon": [
         {
-            "height": 600, 
-            "width": 900
+            "height": 300, 
+            "width": 600
         }
     ]
 }
