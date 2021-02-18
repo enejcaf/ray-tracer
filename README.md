@@ -1,5 +1,5 @@
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="Ray_tracer_0"></a>Ray tracer</h1>
-<p class="has-line-data" data-line-start="2" data-line-end="3">Ray tracer je program napisan v Python 3, ki omogoča risanje krogel v prostoru na realističen način z uporabo Blinn-Phong modela in lomnega zakona. Dodan je tudi preprost uporabniški vmesnik v Pygame-u, ki omogoča:</p>
+<p class="has-line-data" data-line-start="2" data-line-end="3">Ray tracer je program napisan v Python 3, ki omogoča risanje krogel, valjev, ravnin in stožcev v prostoru na realističen način z uporabo Blinn-Phong modela in lomnega zakona. Dodan je tudi preprost uporabniški vmesnik v Pygame-u, ki omogoča:</p>
 <ul>
 <li class="has-line-data" data-line-start="3" data-line-end="4">branje iz datotek formata “.json”,</li>
 <li class="has-line-data" data-line-start="4" data-line-end="5">predogled postavitve v prostoru kot pogled iz smeri kamere in 3-d vrtljivo shemo,</li>
