@@ -41,9 +41,9 @@
 </code></pre>
 <h3 class="code-line" data-line-start=38 data-line-end=39 ><a id="Uporabniki_vmesnik_38"></a>Uporabniški vmesnik</h3>
 <p class="has-line-data" data-line-start="39" data-line-end="40">Uporabniški vmesnik <a href="https://github.com/enejcaf/ray-tracer/blob/main/main.py">main.py</a> je preprost, saj vsebuje le nekaj intuitivnih gumbov. Dodatna opozorila, kot na primer, da niste izbrali datoteke, čeprav ste kliknili naloži datoteko in podobno se prikazujejo v terminalu, zato je dobro pustiti odprtega zraven. Prav tako je v terminalu prikazan prikazovalnik napredka, ki je vgrajen v <a href="https://github.com/enejcaf/ray-tracer/blob/main/raytr.py">raytr.py</a>, kar je namenjeno predvsem uporabi brez prikazovalnika slike v živo z uporabniškim vmesnikom.
-
-<img src="./uporabniski_vmesnik.png">
-
+<br>
+<img src="./uporabniski_vmesnik.png" width="747" height="515" class="center">
+<br>
 <h5 class="code-line" data-line-start=43 data-line-end=44 ><a id="1_Zaetek_uporabe_43"></a>1. Začetek uporabe:</h5>
 <p class="has-line-data" data-line-start="44" data-line-end="51">1.1. Nalaganje vhodne datoteke:<br>
 V glavnem oknu s klikom na gumb “Naloži” naložimo dototeko oblike “.json”. Če takšne datoteke še nimamo, lahko vzamemo katerega od primerov s strani <a href="https://github.com/enejcaf/ray-tracer">projekta</a> in jo preoblikujemo, ali pa uporabimo funkcijo<br>
@@ -54,4 +54,6 @@ Objekte lahko dodajamo s pritiskom na desni kumb “krogla”, "valj", "ravnina"
 <br>
 1.3. Izrisovanje slike<br>
 Ko smo zadovoljni s sceno s klikom na gumb “Nariši”, program začne sproti izrisovat sliko na zaslonu v terminalu pa lahko vidimo tudi progress bar, če nas bolj pritegne opazovanje številk. Kako pogosto se posodablja slika, lahko zlahka spreminjamo v zanki, saj pri prepogostem osveževanju uporabniški vmesnik lahko postane neodziven. Za višjo kvaliteto slik je potrebno počakati nekaj časa. Ko je slika končana se prikažeta rdeča gumba “X” zapri, kar nas vrne na začetno stran programa, in gumb “Shrani”, ki nam omogoča shranjevanje slike, prek pogovornega okna, v formate oblike ‘JPEG’: ’<em>.jpg’,’</em>.jpeg’,’<em>.jpe’,’</em>.jfif’; ‘PNG’: ’<em>.png’; ‘BMP’: ’</em>.bmp’,’<em>.jdib’; ‘GIF’: ’</em>.gif’. Če po nesreči stisnemo “X” in bi vendarle radi sliko, ki smo jo na zaslonu čakali nekaj časa, bo do začetka novega izrisovanja, slika še shranjena pod imenom “trenutna.jpg”</p>
-<img src="./trenutna.png">
+<br>
+<img src="./trenutna.png" class="center">
+<br>
