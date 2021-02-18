@@ -40,7 +40,7 @@
 <h3 class="code-line" data-line-start=38 data-line-end=39 ><a id="Uporabniki_vmesnik_38"></a>Uporabniški vmesnik</h3>
 <p class="has-line-data" data-line-start="39" data-line-end="40">Uporabniški vmesnik <a href="https://github.com/enejcaf/ray-tracer/blob/main/main.py">main.py</a> je preprost, saj vsebuje le nekaj intuitivnih gumbov. Dodatna opozorila, kot na primer, da niste izbrali datoteke, čeprav ste kliknili naloži datoteko in podobno se prikazujejo v terminalu, zato je dobro pustiti odprtega zraven. Prav tako je v terminalu prikazan prikazovalnik napredka, ki je vgrajen v <a href="https://github.com/enejcaf/ray-tracer/blob/main/raytr.py">raytr.py</a>, kar je namenjeno predvsem uporabi brez prikazovalnika slike v živo z uporabniškim vmesnikom.
 
-</p>![Slika uporabniškega vmesnika](https://github.com/enejcaf/ray-tracer/blob/main/uporabniski_vmesnik.png "Slika uporabniskega vmesnika")
+<img src="./uporabniski_vmesnik.png">
 
 <h5 class="code-line" data-line-start=43 data-line-end=44 ><a id="1_Zaetek_uporabe_43"></a>1. Začetek uporabe:</h5>
 <p class="has-line-data" data-line-start="44" data-line-end="51">1.1. Nalaganje vhodne datoteke:<br>
