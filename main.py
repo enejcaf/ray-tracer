@@ -4,7 +4,7 @@
 import pygame
 import Buttons #v isti mapi
 import raytr2 #v isti mapi
-import plot_objects
+import plot_objects #v isti mapi
 from pygame.locals import *
 import numpy as np
 import os.path
@@ -19,12 +19,8 @@ from numpy import random
 import matplotlib.pyplot as plt
 
 
-
-
-#root.withdraw()
-
-
 GRAY = (150, 150, 150)
+
 #Initialize pygame
 pygame.init()
 x=300*3
@@ -44,10 +40,19 @@ triD = Buttons.Button()
 Naslov= Buttons.Button_noalpha()
 Button_close= Buttons.Button_noalpha()
 Button_save=Buttons.Button_noalpha()
-#Update the display and show the button
+
+
 def update_display(img, narisi):
+    '''
+    Funkcija, ki posodobi prikaz na zaslonu.
+    Vhod:
+        -img: slika ali int 0.
+        -narisi: celo stevilo 0 ali narisi>0.
+    Če je narisi večji od nič nariše trenutno sliko na "pygame display" in gumbe iz Buttons.py, drugače izriše sivo kockasto mrežo v velikosti
+    slike, če bi jo pogram prejel.
+    '''
     screen.fill((255,255,255))
-    #Parameters: surface, color, x, y, length, height, width, text, text_color
+    #Parameteri za gumbe: surface, color, x, y, length, height, width, text, text_color
     x_size, y_size = 100, 50
     Narisi.create_button(screen, (102, 0, 204), (x-2*x_size)//2+300-10, y//2+200+10, x_size, y_size, 0, "Nariši", (255,255,255))
     Nalozi.create_button(screen, (102, 0, 204), x//2-300+10, y//2+200+10, x_size, y_size, 0, "Naloži", (255,255,255))
@@ -78,22 +83,32 @@ def update_display(img, narisi):
     pygame.display.flip()
 
 
-#root = tk.Tk()
-#Run the loop
+
 update_display(0, 0)
+
+'''
+Začetne vrednosti spremenljivk, ki se uporabljajo v mainloopu. "butC" in "butS" povesta, če se na zaslonu prikažeta
+gumba za close in save, kar se zgodi samo, ko klinkemo gumb "Nariši". Uploaded se uporablja v resnici samo namesto
+pogoja os.path.isfile(pot) == True/False, kot vhodni podatek v funkciji update_display. Torej če je uploaded>0, pomeni
+os.path.isfile(pot) == True in po na displayu slika trenutne postavitve.
+'''
 
 butC=0
 butS=0
 uploaded=0 #različen od nič, ko damo noter json parametre postavitve
 
+#Glavna zanka programa:
 while True:
 
     for event in pygame.event.get():
+
         if event.type == pygame.QUIT:
             pygame.quit()
+
         elif event.type == MOUSEBUTTONDOWN:
+
             if Narisi.pressed(pygame.mouse.get_pos()):
-                #img = pygame.image.load('image.png')
+
                 if uploaded>0:
                     objekti, svetila, kamera, zaslon = read_json(pot)
                     gen = raytr2.slika(zaslon[0]['width'], zaslon[0]['height'], 3, kamera[0]['position'], svetila[0], objekti)
@@ -112,39 +127,39 @@ while True:
                             screen.blit(img, rect)
                             pygame.display.update()
 
+                    #prikaz slike:
                     img = pygame.image.load('trenutna.png')
-
                     (x_img, y_img)=img.get_rect().size
                     img.convert()
                     rect = img.get_rect()
                     rect.center = x//2, y//2
                     screen.fill(GRAY)
                     screen.blit(img, rect)
-                    #button size: w, h
 
+
+                    #velikost gumbov za shranjevanje in zapiranje: w, h
                     w, h = 40, 20
                     w2, h2 = 100, 20
                     Button_close.create_button(screen, (255,0,0), (x+x_img)//2 - w, (y-y_img)//2, w, h, 0, "x", (255,255,255))
                     Button_save.create_button(screen, (255,0,0), (x+x_img)//2 - w2, (y+y_img)//2-h2, w2, h2, 0, "Save", (255,255,255))
+
                     pygame.display.update()
                     butC+=1
                     butS+=1
+
                 else:
                     print('Naložena ni bila še nobena datoteka!')
 
             if Nalozi.pressed(pygame.mouse.get_pos()):
                 root = tk.Tk()
                 pot = filedialog.askopenfilename()
-                #pot = getPath()
-
                 root.destroy()
+
                 print('Nalagam: '+pot)
 
-                #potrebno je pametno skaliranje slike tlorisa
                 #naloži file pot/ime.json
                 if os.path.isfile(pot) == True:
                     objekti, svetila, kamera, zaslon = read_json(pot)
-
                     uploaded+=1
 
                     plot_objects.plot_objects(objekti, kamera[0]['position'], 0)
@@ -154,8 +169,6 @@ while True:
                 else:
                     print('Datoteka na lokaciji '+pot+' ne obstaja.')
                     update_display(0, 0)
-
-                    break
 
 
             if valj.pressed(pygame.mouse.get_pos()):
@@ -171,16 +184,16 @@ while True:
                     r1=random.rand()
                     h=random.rand()
 
+                    #preberemo objekte, dodamo in zapišemo
                     objekti, svetila, kamera, zaslon = read_json(pot)
                     objekti.append({ 'type': 'cylinder', 'center': r_center, 'direction': d, 'height': h, 'radius': r1, 'ambient': np.array(barva)/2550, 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 })
-
                     print_json(objekti, svetila, kamera, zaslon, pot)
 
+                    #narišemo novo sliko
                     plot_objects.plot_objects(objekti, kamera[0]['position'], 0)
                     img = pygame.image.load('predogled.png')
-
+                    print('Dodajam valj.')
                     update_display(img, uploaded)
-                    print('Dodajam valj')
 
                 else:
                     print('Niste še naložili datoteke oblike json z začetnimi podatki.')
@@ -199,13 +212,15 @@ while True:
                     d=np.array(random.rand(3))
                     h=random.rand()
 
+                    #preberemo objekte, dodamo in zapišemo
                     objekti, svetila, kamera, zaslon = read_json(pot)
                     objekti.append({ 'type': 'cone', 'center': r_center, 'direction': d, 'height': h, 'ambient': np.array(barva)/2550, 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 })
-
                     print_json(objekti, svetila, kamera, zaslon, pot)
 
+                    #narišemo novo sliko
                     plot_objects.plot_objects(objekti, kamera[0]['position'], 0)
                     img = pygame.image.load('predogled.png')
+                    print('Dodajam stožec.')
                     update_display(img, uploaded)
 
                 else:
@@ -223,14 +238,17 @@ while True:
                     r0=np.array(random.rand(3))
                     n0=np.array(random.rand(3))
 
+                    #preberemo objekte, dodamo in zapišemo
                     objekti, svetila, kamera, zaslon = read_json(pot)
                     objekti.append({ 'type': 'plane', 'normal': n0, 'point': r0, 'ambient': np.array(barva)/2550, 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 })
                     print_json(objekti, svetila, kamera, zaslon, pot)
 
+                    #narišemo novo sliko
                     plot_objects.plot_objects(objekti, kamera[0]['position'], 0)
                     img = pygame.image.load('predogled.png')
-
+                    print('Dodajam ravnino.')
                     update_display(img, uploaded)
+
                 else:
                     print('Niste še naložili datoteke oblike json z začetnimi podatki.')
 
@@ -242,43 +260,48 @@ while True:
                     barva = askcolor()[0]
                     root.destroy()
 
-                    #Spremenljivke za valj
+                    #Spremenljivke za kroglo
                     center1=np.array(random.rand(3))
                     r1=random.rand()
 
+                    #preberemo objekte, dodamo in zapišemo
                     objekti, svetila, kamera, zaslon = read_json(pot)
                     objekti.append({'type': 'ball', 'center': center1, 'radius': r1, 'ambient': np.array(barva)/2550, 'diffuse': np.array([0.7, 0, 0]), 'specular': np.array([1, 1, 1]), 'shininess': 100, 'reflection': 0.5, 'n2': 1.52 })
                     print_json(objekti, svetila, kamera, zaslon, pot)
 
+                    #narišemo novo sliko
                     plot_objects.plot_objects(objekti, kamera[0]['position'], 0)
                     img = pygame.image.load('predogled.png')
-
-
+                    print('Dodajam kroglo.')
                     update_display(img, uploaded)
 
                 else:
                     print('Niste še naložili datoteke oblike json z začetnimi podatki.')
 
             if triD.pressed(pygame.mouse.get_pos()):
+
                 if uploaded>0:
                     objekti, svetila, kamera, zaslon = read_json(pot)
-
                     plot_objects.plot_objects(objekti, kamera[0]['position'], 1)
                     pygame.display.update()
+
                 else:
                     print('Niste še naložili datoteke oblike json z začetnimi podatki.')
 
             if butC > 0:
+
                 if Button_close.pressed(pygame.mouse.get_pos()):
                     butC -= 1
                     update_display(0,0)
+
             if butS > 0:
+
                 if Button_save.pressed(pygame.mouse.get_pos()):
                     root = tk.Tk()
-                    ime=filedialog.asksaveasfilename(title = "Select file", filetypes = (('JPEG', ('*.jpg','*.jpeg','*.jpe','*.jfif')),('PNG', '*.png'),('BMP', ('*.bmp','*.jdib')),('GIF', '*.gif')))
+                    ime=filedialog.asksaveasfilename(title = "Izberi datoteko", filetypes = (('JPEG', ('*.jpg','*.jpeg','*.jpe','*.jfif')),('PNG', '*.png'),('BMP', ('*.bmp','*.jdib')),('GIF', '*.gif')))
                     root.destroy()
                     pygame.image.save(img, ime)
                     Button_save.create_button(screen, (255,0,0), (x+x_img)//2 - w2, (y+y_img)//2, w2, h2, 0, "Saved", (255,255,255))
                     pygame.display.update()
                     butS -= 1
-                    print('Image saved!')
+                    print('Slika shranjena!')
