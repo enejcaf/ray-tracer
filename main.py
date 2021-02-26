@@ -25,7 +25,7 @@ GRAY = (150, 150, 150)
 pygame.init()
 x=300*3
 y=200*3
-#!!! vedno shrani sliko še na ta size 600*400
+#!!! sliko shrani npr na 600*400, če je potrebno narisati večjo sliko bo poteben tudi večji pygame screen.
 #Create a display
 screen = pygame.display.set_mode((x,y))
 pygame.display.set_caption("Ray tracer")
