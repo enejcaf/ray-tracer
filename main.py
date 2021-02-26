@@ -23,8 +23,8 @@ GRAY = (150, 150, 150)
 
 #Initialize pygame
 pygame.init()
-x=300*3
-y=200*3
+x = 300 * 3
+y = 200 * 3
 #!!! sliko shrani npr na 600*400, če je potrebno narisati večjo sliko bo poteben tudi večji pygame screen.
 #Create a display
 screen = pygame.display.set_mode((x,y))
@@ -37,9 +37,9 @@ krogla = Buttons.Button()
 ravnina = Buttons.Button()
 stozec = Buttons.Button()
 triD = Buttons.Button()
-Naslov= Buttons.Button_noalpha()
-Button_close= Buttons.Button_noalpha()
-Button_save=Buttons.Button_noalpha()
+Naslov = Buttons.Button_noalpha()
+Button_close = Buttons.Button_noalpha()
+Button_save = Buttons.Button_noalpha()
 
 
 def update_display(img, narisi):
