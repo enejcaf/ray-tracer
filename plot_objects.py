@@ -35,6 +35,7 @@ def rot(axis, sin_theta, cos_theta):
     b, c, d = -axis * sin_theta / (2 * a) #-axis*np.sin(theta / 2.0)
     aa, bb, cc, dd = a * a, b * b, c * c, d * d
     bc, ad, ac, ab, bd, cd = b * c, a * d, a * c, a * b, b * d, c * d
+
     return np.array([[aa + bb - cc - dd, 2 * (bc + ad), 2 * (bd - ac)],
                      [2 * (bc - ad), aa + cc - bb - dd, 2 * (cd + ab)],
                      [2 * (bd + ac), 2 * (cd - ab), aa + dd - bb - cc]])
@@ -48,6 +49,7 @@ def cylinder(center, axis, r, hmax):
     #cos_fi=np.dot(normalize(axis), normalize(0,0,1))
     if normalize(axis)[2]==1:
         R = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+
     else:
         cos_fi = normalize(axis)[2]
         rot_axis = np.array([normalize(axis)[1], -normalize(axis)[0], 0])
@@ -63,12 +65,14 @@ def cylinder(center, axis, r, hmax):
 
     #mnozimo v Einsteinovi notaciji tako, kot da so x, y, z števila in seštejemo po celem stolpcu
     vec_R=np.einsum('ij,jkl', R, np.stack((x, y, z)))
+
     return vec_R[0]+center[0],vec_R[1]+center[1],vec_R[2]+center[2]
 
 def cone(center, axis, h):
     #cos_fi=np.dot(normalize(axis), normalize(0,0,1))
     if normalize(axis)[2] == 1:
         R=np.array([[1, 0, 0],[0, 1, 0],[0, 0, 1]])
+
     else:
         cos_fi = normalize(axis)[2]
         rot_axis = np.array([normalize(axis)[1], -normalize(axis)[0], 0])
@@ -90,6 +94,7 @@ def cone(center, axis, h):
 
     #mnozimo v Einsteinovi notaciji tako, kot da so x, y, z števila in seštejemo po celem stolpcu
     vec_R = np.einsum('ij,jkl', R, np.stack((x, y, z)))
+
     return vec_R[0] + center[0], vec_R[1] + center[1], vec_R[2] + center[2]
 
 def plane(normal, r0):
@@ -99,11 +104,13 @@ def plane(normal, r0):
         x, y = x - n / 3 * np.ones(n), y - n / 3 * np.ones(n)
         z = (np.dot(r0, normal) - x * normal[0] - y * normal[1]) / normal[2]
         return x, y, z
+
     elif normal[1] > 0:
         x, z = np.meshgrid(range(n), range(n))
         x, z = x - n / 3 * np.ones(n), z - n / 3 * np.ones(n)
         y = (np.dot(r0, normal) - x * normal[0] - z * normal[2]) / normal[1]
         return x, y, z
+
     elif normal[0] > 0:
         y, z = np.meshgrid(range(n), range(n))
         y, z = y - n / 3 * np.ones(n), z - n / 3 * np.ones(n)
@@ -160,7 +167,7 @@ def plot_objects(objekti, camera, pokazi):
     e3 = np.array([0,0,1])
 
     if np.dot(e1, camera) == 0 and np.dot(e2, camera) == 0:
-        alpha = 90
+        alpha = -90
         A = -90
 
     else:
